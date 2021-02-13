@@ -22,7 +22,11 @@
 		 </tr>
 		 
 		 <tr>
-		 	<td><a href="pages/progressBar.jsp">Barra de progresso em JQuery</a></td>
+		 	<td><a href="pages/progressBar.jsp">Barra de progresso com Javascript e JQuery</a></td>
+		 </tr>
+		 
+		 <tr>
+		 	<td><a href="pages/uploadDeImagem.jsp">Upload de imagens</a></td>
 		 </tr>
 		 
 		 <tr>
