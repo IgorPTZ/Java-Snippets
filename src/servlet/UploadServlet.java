@@ -26,9 +26,21 @@ public class UploadServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String imagem = request.getParameter("fileUpload");
-		
-		System.out.println(imagem);
+		try {
+			
+			// Pode ser utilizado para salvar no banco de dados
+			
+			String imagem = request.getParameter("fileUpload");
+			
+			response.getWriter().write("Upload realizado com sucesso!");
+		}
+		catch(Exception e) {
+			
+			e.printStackTrace();
+			
+			response.getWriter().write("Erro no upload da imagem!");
+		}
+
 	}
 
 }

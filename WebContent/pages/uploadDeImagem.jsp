@@ -13,8 +13,6 @@
 	<input type="file" id="file" name="file" onchange="uploadFile();">
 	
 	<img alt="Image" src="" id="target" width="200" height="200">
-	
-	<input type="hidden" id="imagemBase64">
 </body>
 
 <script type="text/javascript">
@@ -29,26 +27,26 @@
 		
 		reader.onloadend = function () {
 			
-			document.getElementById("imagemBase64").value = reader.result;
-		};
-		
-		if(file) {
-			
-			reader.readAsDataURL(file);
+			target.src = reader.result;
 			
 			// Enviando uma imagem para o servidor atraves de uma chamada AJAX
 			
 			$.ajax({
 				method : "POST",
 				url: "uploadServlet",
-				data: {fileUpload : $("#imagemBase64")}
+				data: {fileUpload : reader.result}
 			}).done(function(response){
 				
-				alert("Imagem armazenada com sucesso!");
+				alert("Imagem armazenada com sucesso! " + response);
 			}).fail(function(xhr, status, errorThrown){
 				
-				alert("Erro ao armazenar a imagem!");
+				alert("Erro ao armazenar a imagem!" + xhr.responseText);
 			});
+		};
+		
+		if(file) {
+			
+			reader.readAsDataURL(file);
 		}
 		else {
 			
