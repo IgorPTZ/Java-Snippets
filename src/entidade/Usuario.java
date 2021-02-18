@@ -6,6 +6,10 @@ public class Usuario {
 	
 	private String senha;
 	
+	private String nome;
+	
+	private String arquivo;
+	
 	public Usuario() {
 		
 	}
@@ -15,6 +19,17 @@ public class Usuario {
 		this.login = login;
 		
 		this.senha = senha;
+	}
+	
+	public Usuario(String login, String senha, String nome, String arquivo) {
+		
+		this.login   = login;
+		
+		this.senha   = senha;
+		
+		this.nome    = nome;
+		
+		this.arquivo = arquivo;
 	}
 
 	public String getLogin() {
@@ -31,5 +46,21 @@ public class Usuario {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getArquivo() {
+		return arquivo;
+	}
+
+	public void setArquivo(String arquivo) {
+		this.arquivo = arquivo;
 	}
 }
