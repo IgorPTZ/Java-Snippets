@@ -13,6 +13,8 @@
 	<input type="file" id="file" name="file" onchange="uploadFile();">
 	
 	<img alt="Image" src="" id="target" width="200" height="200">
+	
+	<a href="uploadServlet">Carregar imagens</a>
 </body>
 
 <script type="text/javascript">
