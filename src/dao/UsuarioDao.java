@@ -2,7 +2,10 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import connection.SingleConnection;
 import entidade.Usuario;
@@ -49,5 +52,37 @@ public class UsuarioDao {
 				e1.printStackTrace();
 			}
 		}
+	}
+	
+	public List<Usuario> listar() {
+		
+		try {
+			
+			List<Usuario> usuarios = new ArrayList<Usuario>();
+			
+			String sql = "select * from usuario order by nome";
+			
+			PreparedStatement preparedStatement = connection.prepareStatement(sql);
+			
+			ResultSet resultSet = preparedStatement.executeQuery();
+			
+			while(resultSet.next()) {
+				
+				Usuario usuario = new Usuario(resultSet.getString("login"),
+											  resultSet.getString("senha"),
+											  resultSet.getString("nome"),
+											  resultSet.getString("arquivo"));
+				
+				usuarios.add(usuario);
+			}
+			
+			return usuarios;
+		}
+		catch(Exception e) {
+			
+			e.printStackTrace();
+		}
+		
+		return null;
 	}
 }

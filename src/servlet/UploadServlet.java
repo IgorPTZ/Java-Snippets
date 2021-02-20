@@ -2,6 +2,7 @@ package servlet;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -27,8 +28,12 @@ public class UploadServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
+		RequestDispatcher requestDispatcher = request.getRequestDispatcher("uploadDeImagem.jsp");
 		
-		System.out.println("doGet loaded!!!");
+		request.setAttribute("usuarios", usuarioDao.listar());
+		
+		requestDispatcher.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -49,5 +54,4 @@ public class UploadServlet extends HttpServlet {
 		}
 
 	}
-
 }
