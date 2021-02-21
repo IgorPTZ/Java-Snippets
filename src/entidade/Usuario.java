@@ -2,6 +2,8 @@ package entidade;
 
 public class Usuario {
 	
+	private Long id;
+	
 	private String login;
 	
 	private String senha;
@@ -21,7 +23,9 @@ public class Usuario {
 		this.senha = senha;
 	}
 	
-	public Usuario(String login, String senha, String nome, String arquivo) {
+	public Usuario(Long id, String login, String senha, String nome, String arquivo) {
+		
+		this.id = id;
 		
 		this.login   = login;
 		
@@ -30,6 +34,14 @@ public class Usuario {
 		this.nome    = nome;
 		
 		this.arquivo = arquivo;
+	}
+	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getLogin() {

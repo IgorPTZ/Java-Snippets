@@ -68,7 +68,8 @@ public class UsuarioDao {
 			
 			while(resultSet.next()) {
 				
-				Usuario usuario = new Usuario(resultSet.getString("login"),
+				Usuario usuario = new Usuario(Long.parseLong(resultSet.getString("id")),
+											  resultSet.getString("login"),
 											  resultSet.getString("senha"),
 											  resultSet.getString("nome"),
 											  resultSet.getString("arquivo"));
@@ -77,6 +78,35 @@ public class UsuarioDao {
 			}
 			
 			return usuarios;
+		}
+		catch(Exception e) {
+			
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+	
+	public Usuario consultar(Long id) {
+		
+		try {
+			
+			String sql = "select * from usuario where id = " + id;
+			
+			PreparedStatement preparedStatement = connection.prepareStatement(sql);
+			
+			ResultSet resultSet = preparedStatement.executeQuery();
+			
+			while(resultSet.next()) {
+				
+				Usuario usuario = new Usuario(Long.parseLong(resultSet.getString("id")),
+											  resultSet.getString("login"),
+											  resultSet.getString("senha"),
+											  resultSet.getString("nome"),
+											  resultSet.getString("arquivo"));
+				
+				return usuario;
+			}
 		}
 		catch(Exception e) {
 			

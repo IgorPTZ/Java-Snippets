@@ -22,7 +22,7 @@
 	<br/>
 	<br/>
 
-	<a href="uploadServlet">Carregar imagens</a>
+	<a href="uploadServlet?acao=carregar">Carregar imagens</a>
 	
 	<br/>
 	<br/>
@@ -33,6 +33,7 @@
 				<td>${usuario.login}</td>
 				<td>${usuario.senha}</td>
 				<td>${usuario.nome}</td>
+				<td><a href="uploadServlet?acao=baixar&id=${usuario.id}">Baixar arquivo</a></td>
 			</tr>
 		</c:forEach>
 	</table>
