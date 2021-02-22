@@ -66,7 +66,7 @@
 				data: {fileUpload : reader.result}
 			}).done(function(response){
 				
-				alert("Imagem armazenada com sucesso! " + response);
+				alert("Imagem armazenada com sucesso! ");
 			}).fail(function(xhr, status, errorThrown){
 				
 				alert("Erro ao armazenar a imagem!" + xhr.responseText);

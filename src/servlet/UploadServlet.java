@@ -55,6 +55,8 @@ public class UploadServlet extends HttpServlet {
 				
 				if(usuario.getArquivo() != null) {
 					
+					response.setHeader("Content-Disposition", "attachment;filename=imagem.png");
+					
 					/* Obtem o base64 do arquivo */
 					String arquivoBase64 = usuario.getArquivo().split(",")[1];
 					
@@ -99,7 +101,7 @@ public class UploadServlet extends HttpServlet {
 			
 			String imagem = request.getParameter("fileUpload");
 			
-			usuarioDao.inserir(new Usuario(null, "admin", "teste321", "Administrador", imagem));
+			usuarioDao.inserir(new Usuario(null, "admin", "teste321", "Administrador", imagem, null));
 			
 			response.getWriter().write("Upload da imagem realizado com sucesso!");
 		}

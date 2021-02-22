@@ -23,7 +23,7 @@ public class UsuarioDao {
 		
 		try {
 			
-			String sql = "insert into usuario (login, senha, nome, arquivo) values (?, ?, ?, ?)";
+			String sql = "insert into usuario (login, senha, nome, arquivo, tipo_arquivo) values (?, ?, ?, ?, ?)";
 			
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			
@@ -34,6 +34,8 @@ public class UsuarioDao {
 			preparedStatement.setString(3, usuario.getNome());
 			
 			preparedStatement.setString(4, usuario.getArquivo());
+			
+			preparedStatement.setString(5, usuario.getTipoDoArquivo());
 			
 			preparedStatement.execute();
 			
@@ -72,7 +74,8 @@ public class UsuarioDao {
 											  resultSet.getString("login"),
 											  resultSet.getString("senha"),
 											  resultSet.getString("nome"),
-											  resultSet.getString("arquivo"));
+											  resultSet.getString("arquivo"),
+											  resultSet.getString("tipo_arquivo"));
 				
 				usuarios.add(usuario);
 			}
@@ -103,7 +106,8 @@ public class UsuarioDao {
 											  resultSet.getString("login"),
 											  resultSet.getString("senha"),
 											  resultSet.getString("nome"),
-											  resultSet.getString("arquivo"));
+											  resultSet.getString("arquivo"),
+											  resultSet.getString("tipo_arquivo"));
 				
 				return usuario;
 			}

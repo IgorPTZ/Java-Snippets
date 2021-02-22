@@ -12,6 +12,8 @@ public class Usuario {
 	
 	private String arquivo;
 	
+	private String tipoDoArquivo;
+	
 	public Usuario() {
 		
 	}
@@ -23,7 +25,7 @@ public class Usuario {
 		this.senha = senha;
 	}
 	
-	public Usuario(Long id, String login, String senha, String nome, String arquivo) {
+	public Usuario(Long id, String login, String senha, String nome, String arquivo, String tipoDoArquivo) {
 		
 		this.id = id;
 		
@@ -34,6 +36,8 @@ public class Usuario {
 		this.nome    = nome;
 		
 		this.arquivo = arquivo;
+		
+		this.tipoDoArquivo = tipoDoArquivo;
 	}
 	
 	public Long getId() {
@@ -74,5 +78,13 @@ public class Usuario {
 
 	public void setArquivo(String arquivo) {
 		this.arquivo = arquivo;
+	}
+
+	public String getTipoDoArquivo() {
+		return tipoDoArquivo;
+	}
+
+	public void setTipoDoArquivo(String tipoDoArquivo) {
+		this.tipoDoArquivo = tipoDoArquivo;
 	}
 }
