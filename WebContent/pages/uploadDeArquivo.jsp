@@ -6,11 +6,11 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-	<title>Upload de imagens</title>
+	<title>Upload de arquivos</title>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 </head>
 <body>
-	<h3>Upload de imagens</h3>
+	<h3>Upload de arquivos</h3>
 	
 	<input type="file" id="file" name="file" onchange="uploadFile();">
 	
@@ -22,7 +22,7 @@
 	<br/>
 	<br/>
 
-	<a href="uploadServlet?acao=carregar">Carregar imagens</a>
+	<a href="uploadServlet?acao=carregar">Carregar usuarios</a>
 	
 	<br/>
 	<br/>

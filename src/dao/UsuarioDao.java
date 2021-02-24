@@ -22,6 +22,7 @@ public class UsuarioDao {
 	public void inserir(Usuario usuario) {
 		
 		try {
+			String tipoDoArquivo = usuario.getArquivo().split(",")[0].split(";")[0].split("/")[1];
 			
 			String sql = "insert into usuario (login, senha, nome, arquivo, tipo_arquivo) values (?, ?, ?, ?, ?)";
 			
@@ -35,7 +36,7 @@ public class UsuarioDao {
 			
 			preparedStatement.setString(4, usuario.getArquivo());
 			
-			preparedStatement.setString(5, usuario.getTipoDoArquivo());
+			preparedStatement.setString(5, tipoDoArquivo);
 			
 			preparedStatement.execute();
 			

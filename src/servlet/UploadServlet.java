@@ -41,7 +41,7 @@ public class UploadServlet extends HttpServlet {
 			
 			if(acao.equalsIgnoreCase("carregar")) {
 				
-				RequestDispatcher requestDispatcher = request.getRequestDispatcher("uploadDeImagem.jsp");
+				RequestDispatcher requestDispatcher = request.getRequestDispatcher("uploadDeArquivo.jsp");
 				
 				request.setAttribute("usuarios", usuarioDao.listar());
 				
@@ -55,7 +55,7 @@ public class UploadServlet extends HttpServlet {
 				
 				if(usuario.getArquivo() != null) {
 					
-					response.setHeader("Content-Disposition", "attachment;filename=imagem.png");
+					response.setHeader("Content-Disposition", "attachment;filename=arquivo." + usuario.getTipoDoArquivo());
 					
 					/* Obtem o base64 do arquivo */
 					String arquivoBase64 = usuario.getArquivo().split(",")[1];
@@ -99,7 +99,7 @@ public class UploadServlet extends HttpServlet {
 		
 		try {
 			
-			String imagem = request.getParameter("fileUpload");
+ 			String imagem = request.getParameter("fileUpload");
 			
 			usuarioDao.inserir(new Usuario(null, "admin", "teste321", "Administrador", imagem, null));
 			

@@ -26,7 +26,11 @@
 		 </tr>
 		 
 		 <tr>
-		 	<td><a href="pages/uploadDeImagem.jsp">Upload de imagens</a></td>
+		 	<td><a href="pages/uploadDeArquivo.jsp">Upload de arquivos</a></td>
+		 </tr>
+		 
+		 <tr>
+		 	<td><a href="pages/dataTable.jsp">DataTable com JQuery</a></td>
 		 </tr>
 		 
 		 <tr>
