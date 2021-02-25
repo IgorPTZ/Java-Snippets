@@ -30,7 +30,7 @@
 		 </tr>
 		 
 		 <tr>
-		 	<td><a href="pages/dataTable.jsp">DataTable com JQuery</a></td>
+		 	<td><a href="pages/dataTable.jsp">DataTable em JQuery</a></td>
 		 </tr>
 		 
 		 <tr>

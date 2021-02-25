@@ -1,6 +1,7 @@
 package filtro;
 
 import java.io.IOException;
+import java.sql.Connection;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -13,12 +14,15 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import connection.SingleConnection;
 import entidade.Usuario;
 
 
 // Intercepta todas as requisições de todas as URL's
 @WebFilter(urlPatterns={"/pages/*"})
 public class FiltroAutenticacao implements Filter{
+	
+	private static Connection connection;
 
 	// Executado quando a aplicação é terminada
 	@Override
@@ -57,6 +61,7 @@ public class FiltroAutenticacao implements Filter{
 	// Executado quando a aplicação é iniciada
 	@Override
 	public void init(FilterConfig arg0) throws ServletException {
-	
+		
+		connection = SingleConnection.getConnection();
 	}
 }
