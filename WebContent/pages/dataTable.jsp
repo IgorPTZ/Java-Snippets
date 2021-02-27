@@ -19,6 +19,7 @@
 	<table id="tabelaDeUsuarios" class="display" style="width:100%">
         <thead>
             <tr>
+            	<th>Id</th>
                 <th>Nome</th>
                 <th>Login</th>
                 <th>Senha</th>
