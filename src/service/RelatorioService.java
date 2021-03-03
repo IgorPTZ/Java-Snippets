@@ -1,4 +1,4 @@
-package servico;
+package service;
 
 import java.io.File;
 import java.io.Serializable;
@@ -8,13 +8,15 @@ import java.util.List;
 import javax.servlet.ServletContext;
 
 import net.sf.jasperreports.engine.JRExporter;
+import net.sf.jasperreports.engine.JRExporterParameter;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.engine.export.JRPdfExporter;
 import net.sf.jasperreports.engine.util.JRLoader;
 
-public class RelatorioServico implements Serializable {
+public class RelatorioService implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -24,7 +26,7 @@ public class RelatorioServico implements Serializable {
 	
 	private static String SEPARADOR = File.separator;
 	
-	private static final String caminhoArquivoRelatorio = null;
+	private static String caminhoArquivoRelatorio = null;
 	
 	private JRExporter exporter = null;
 	
@@ -70,7 +72,27 @@ public class RelatorioServico implements Serializable {
 		
 		/* Carrega o arquivo para a memoria */
 		JasperPrint jasperPrint = JasperFillManager.fillReport(relatorioJasper, parametrosRelatorio, jrBeanCollectionDataSource);
-				
-		return "";
+			
+		
+		/* Caminho do relatorio exportado */
+		exporter = new JRPdfExporter();
+		
+		caminhoArquivoRelatorio = caminhoDoRelatorio + SEPARADOR + nomeDeSaida + ".pdf";
+		
+		/* Cria novo arquivo exportado */
+		arquivoGerado = new File(caminhoArquivoRelatorio);
+		
+		/* Prepara a impressao */
+		exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
+		
+		exporter.setParameter(JRExporterParameter.OUTPUT_FILE, arquivoGerado);
+		
+		/* Executa a exportacao */
+		exporter.exportReport();
+		
+		/* Remove o arquivo do servidor apos ser feito o download */
+		arquivoGerado.deleteOnExit();
+		
+		return caminhoArquivoRelatorio;
 	}
 }

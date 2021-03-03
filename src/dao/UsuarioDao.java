@@ -57,7 +57,7 @@ public class UsuarioDao {
 		}
 	}
 	
-	public List<Usuario> listar() {
+	public List<Usuario> obterTodos() {
 		
 		try {
 			

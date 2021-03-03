@@ -29,7 +29,7 @@ public class UsuarioServlet extends HttpServlet {
 		try {
 		String jsonDaResposta = "";
 			
-			List<Usuario> usuarios = usuarioDao.listar();
+			List<Usuario> usuarios = usuarioDao.obterTodos();
 			
 			if(!usuarios.isEmpty()) {
 				

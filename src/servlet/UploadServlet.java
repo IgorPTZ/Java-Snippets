@@ -43,7 +43,7 @@ public class UploadServlet extends HttpServlet {
 				
 				RequestDispatcher requestDispatcher = request.getRequestDispatcher("uploadDeArquivo.jsp");
 				
-				request.setAttribute("usuarios", usuarioDao.listar());
+				request.setAttribute("usuarios", usuarioDao.obterTodos());
 				
 				requestDispatcher.forward(request, response);
 			}
