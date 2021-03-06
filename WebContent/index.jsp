@@ -34,6 +34,10 @@
 		 </tr>
 		 
 		 <tr>
+		 	<td><a href="pages/relatorio.jsp">Exportação de relatórios</a></td>
+		 </tr>
+		 
+		 <tr>
 		 	<td><a href="pages/autenticacaoServlet?Sair=true">Sair</a></td>
 		 </tr>
 	</table>

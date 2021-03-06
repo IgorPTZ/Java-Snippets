@@ -12,6 +12,8 @@
 <body>
 	<h3>Upload de arquivos</h3>
 	
+	<a href="../index.jsp">Voltar para o menu principal</a><br><br>
+	
 	<input type="file" id="file" name="file" onchange="uploadFile();">
 	
 	<br>
