@@ -49,8 +49,8 @@ public class RelatorioServlet extends HttpServlet {
 			
 			String urlDoArquivo = relatorioService.gerarRelatorio(usuarios, 
 					                                              new HashMap(), 
-					                                              "rel_usuario", 
-					                                              "rel_usuario", 
+					                                              "usuario", 
+					                                              "usuario", 
 					                                              servletContext);
 			
 			
