@@ -38,6 +38,10 @@
 		 </tr>
 		 
 		 <tr>
+		 	<td><a href="pages/datas.jsp">Calculando datas</a></td>
+		 </tr>
+		 
+		 <tr>
 		 	<td><a href="pages/autenticacaoServlet?Sair=true">Sair</a></td>
 		 </tr>
 	</table>
