@@ -25,6 +25,9 @@
 	
 	<label>Data Final</label>
 	<input type="text" id="dataFinal" name="dataFinal" readonly="readonly" value="${dataFinal}">
+	
+	<label>Número de dias</label>
+	<input type="text" id="numeroDeDias" name="numeroDeDias" readonly="readonly" value="${totalDeDias}">
 </body>
 
 <script type="text/javascript">
