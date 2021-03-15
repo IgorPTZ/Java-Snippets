@@ -42,6 +42,10 @@
 		 </tr>
 		 
 		 <tr>
+		 	<td><a href="pages/calendario.jsp">Calendário em JQuery</a></td>
+		 </tr>
+		 
+		 <tr>
 		 	<td><a href="pages/autenticacaoServlet?Sair=true">Sair</a></td>
 		 </tr>
 	</table>

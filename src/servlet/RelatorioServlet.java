@@ -51,7 +51,8 @@ public class RelatorioServlet extends HttpServlet {
 					                                              new HashMap(), 
 					                                              "usuario", 
 					                                              "usuario", 
-					                                              servletContext);
+					                                              servletContext,
+					                                              extensaoDoRelatorio);
 			
 			
 			// Controi o caminho completo e absoluto do arquivo

@@ -12,6 +12,6 @@
 	<a href="../index.jsp">Voltar para o menu principal</a><br><br>
 	
 	<a href="relatorioServlet?extensaoDoRelatorio=pdf">PDF</a>
-	<a href="relatorioServlet?extensaoDoRelatorio=planilhaExcel">PLANILHA EXCEL</a>
+	<a href="relatorioServlet?extensaoDoRelatorio=xls">PLANILHA EXCEL</a>
 </body>
 </html>
