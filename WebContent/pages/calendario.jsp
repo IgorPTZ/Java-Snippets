@@ -36,15 +36,9 @@
 
 	$(document).ready(function() {
 		
-		$.get("calendarioServlet", function(data) {
+		$.get("calendarioServlet", function(response) {
 			
-			alert(data);
-			
-		/* 	var dates = {
-					title: 'Long Event',
-					start: '2017-02-07',
-					end: '2017-02-10'
-				}; */
+			var datas = JSON.parse(response);
 			
 			$('#calendar').fullCalendar({
 				header: {
@@ -52,11 +46,11 @@
 					center: 'title',
 					right: 'month,basicWeek,basicDay'
 				},
-				defaultDate: '2017-02-12',
+				defaultDate: '2021-01-01',
 				navLinks: true, // can click day/week names to navigate views
 				editable: true,
 				eventLimit: true, // allow "more" link when too many events
-				events: [data]
+				events: datas
 			});
 		});	
 	});
