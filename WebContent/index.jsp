@@ -46,6 +46,10 @@
 		 </tr>
 		 
 		 <tr>
+		 	<td><a href="pages/ganttView.jsp">Tabela Gantt</a></td>
+		 </tr>
+		 
+		 <tr>
 		 	<td><a href="pages/autenticacaoServlet?Sair=true">Sair</a></td>
 		 </tr>
 	</table>
