@@ -45,9 +45,9 @@
 			/*var ganttData = [
 				{
 					id: 1, name: "Java Project", series: [
-						{ name: "Planned", start: new Date(2021,00,01), end: new Date(2021,00,03) },
-						{ name: "Actual", start: new Date(2021,00,02), end: new Date(2021,00,05), color: "#f0f0f0" },
-						{ name: "Intended", start: new Date(2021,00,02), end: new Date(2021,00,05), color: "#f0f0f0" }
+						{ name: "Planned", start: new Date(2021,01,01), end: new Date(2021,01,03) },
+						{ name: "Actual", start: new Date(2021,01,10), end: new Date(2021,00,12), color: "#f0f0f0" },
+						{ name: "Intended", start: new Date(2021,01,20), end: new Date(2021,01,25), color: "#f0f0f0" }
 					]
 				}
 			];*/
