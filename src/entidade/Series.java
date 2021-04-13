@@ -12,6 +12,21 @@ public class Series {
 	
 	private Long projetoId;
 	
+	public Series() {
+		
+	}
+	
+	public Series(Long id, String dataInicio, String dataFim, Long projetoId) {
+		
+		this.id = id;
+		
+		this.dataInicio = dataInicio;
+		
+		this.dataFim = dataFim;
+		
+		this.projetoId = projetoId;
+	}
+	
 	public Series(Long id, String nome, String dataInicio, String dataFim, Long projetoId) {
 		
 		this.id = id;

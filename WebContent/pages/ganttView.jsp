@@ -40,17 +40,54 @@
 		
 		$.get("tabelaGanttServlet", function(response) {
 			
-			var ganttData = JSON.parse(response);
+			var ganttDataResponse = JSON.parse(response);
 			
-			/*var ganttData = [
-				{
-					id: 1, name: "Java Project", series: [
-						{ name: "Planned", start: new Date(2021,01,01), end: new Date(2021,01,03) },
-						{ name: "Actual", start: new Date(2021,01,10), end: new Date(2021,00,12), color: "#f0f0f0" },
-						{ name: "Intended", start: new Date(2021,01,20), end: new Date(2021,01,25), color: "#f0f0f0" }
-					]
+			var ganttData = "";
+			    
+			    gattData += "[";
+			
+			$.each(ganttDataResponse, function(index, projeto) {
+				
+				gattData += "{ \"id\": \"" + projeto.id + "\", \"name\": \""+projeto.nome+"\", \"series\": [";
+				
+				$.each(projeto.series, function(idx, serie) {
+					
+					var cores = "#3366FF, #00CC00".split(',');
+					
+					var cor;
+					
+					if(idx === 0) {
+						
+						cor = "#CC33CC";
+					}
+					else {
+						
+						cor = Number.isInteger(idx / 2) ? cores[0] : cores[1];
+					}
+					
+					var dataInicio = serie.dataInicio.split('-');
+					
+					var dataFim = serie.dataFim.split('-');
+					
+					ganttData += "{ \"name\": \"" + serie.nome + "\", \"start\":\"" + new Date(dataInicio[0], dataInicio[1], dataInicio[2]) + "\", \"end\": \"" + new Date(dataFim[0], dataFim[1], dataFim[2]) + "\", \"color\": \"" + cor + "\", \"projeto\":\""+ serie.projeto +"\", \"serie\":\""+ serie.id +"\"}";       
+				
+					if(idx < projeto.series.length - 1) {
+						
+						ganttData += ",";
+					}
+				});
+				
+				ganttData += "]}";
+				
+				if(index < ganttDataResponse.length - 1) {
+					
+					ganttData += ",";
 				}
-			];*/
+			});
+			
+			ganttData += "]";
+			    
+			ganttData = JSON.parse(ganttData);
 			
 			$("#ganttChart").ganttView({ 
 				data: ganttData,
@@ -61,11 +98,27 @@
 						$("#eventMessage").text(msg);
 					},
 					onResize: function (data) { 
+						
 						var msg = "You resized an event: { start: " + data.start.toString("M/d/yyyy") + ", end: " + data.end.toString("M/d/yyyy") + " }";
+						
+						var start = data.start.toString("yyyy-M-d");
+						
+						var end = data.end.toString("yyyy-M-d");
+						
+						$.post("tabelaGanttServlet", {start:"", end: "", serie: data.serie, projeto: data.projeto});
+						
 						$("#eventMessage").text(msg);
 					},
 					onDrag: function (data) { 
+						
 						var msg = "You dragged an event: { start: " + data.start.toString("M/d/yyyy") + ", end: " + data.end.toString("M/d/yyyy") + " }";
+						
+						var start = data.start.toString("yyyy-M-d");
+							
+						var end = data.end.toString("yyyy-M-d");
+						
+						$.post("tabelaGanttServlet", {start: start, end: end, serie: data.serie, projeto: data.projeto});
+						
 						$("#eventMessage").text(msg);
 					}
 				}

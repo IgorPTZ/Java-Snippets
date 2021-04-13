@@ -8,6 +8,7 @@ import java.util.List;
 
 import connection.SingleConnection;
 import entidade.Projeto;
+import entidade.Series;
 
 public class TabelaGanttDao {
 	
@@ -24,16 +25,36 @@ public class TabelaGanttDao {
 			
 			List<Projeto> projetos = new ArrayList<Projeto>();
 			
-			String sqlUm = "select * from projeto";
+			String sqlProjeto = "select * from projeto";
 			
-			PreparedStatement preparedStatementUm = connection.prepareStatement(sqlUm);
+			PreparedStatement preparedStatementUm = connection.prepareStatement(sqlProjeto);
 			
-			ResultSet resultSetUm = preparedStatementUm.executeQuery();
+			ResultSet resultSetProjeto = preparedStatementUm.executeQuery();
 			
-			while(resultSetUm.next()) {
+			while(resultSetProjeto.next()) {
+						
+				String sqlSeries = "select * from series where projet = " + resultSetProjeto.getLong("id");
 				
-				Projeto projeto = new Projeto(resultSetUm.getLong("id"),
-											  resultSetUm.getString("nome"));
+				PreparedStatement preparedStatementSeries = connection.prepareStatement(sqlSeries);
+				
+				ResultSet resultSetSeries = preparedStatementSeries.executeQuery();
+				
+				List<Series> series = new ArrayList<Series>();
+				
+				while(resultSetSeries.next()) {
+					
+					Series serie = new Series(resultSetSeries.getLong("id"),
+							                  resultSetSeries.getString("nome"),
+							                  resultSetSeries.getString("data_inicio"),
+							                  resultSetSeries.getString("data_fim"),
+							                  resultSetSeries.getLong("projeto"));
+					
+					series.add(serie);
+				}
+				
+				Projeto projeto = new Projeto(resultSetProjeto.getLong("id"),
+						                      resultSetProjeto.getString("nome"),
+						                      series);
 				
 				projetos.add(projeto);
 			}

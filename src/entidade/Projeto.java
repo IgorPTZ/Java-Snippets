@@ -11,11 +11,17 @@ public class Projeto {
 	
 	private List<Series> series = new ArrayList<Series>();
 	
-	public Projeto (Long id, String nome) {
+	public Projeto () {
+		
+	}
+	
+	public Projeto (Long id, String nome, List<Series> series) {
 		
 		this.id = id;
 		
 		this.nome = nome;
+		
+		this.series = series;
 	}
 
 	public Long getId() {
