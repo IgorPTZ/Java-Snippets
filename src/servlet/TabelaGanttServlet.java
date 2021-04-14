@@ -26,7 +26,17 @@ public class TabelaGanttServlet extends HttpServlet {
     
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
     	
-    	Series serie = new Series();
+    	String dataInicio = request.getParameter("start");
+    	
+    	String dataFim = request.getParameter("end");
+    	
+    	Long id = Long.parseLong(request.getParameter("serie"));
+    	
+    	Long projetoId = Long.parseLong(request.getParameter("projeto"));
+    	
+    	Series serie = new Series(id, dataInicio, dataFim, projetoId);
+    	
+    	tabelaGanttDao.atualizar(serie);
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)  {

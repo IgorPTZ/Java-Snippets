@@ -3,6 +3,7 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +18,34 @@ public class TabelaGanttDao {
 	public TabelaGanttDao() {
 		
 		connection = SingleConnection.getConnection();
+	}
+	
+	public void atualizar(Series serie) {
+		
+		try {
+			
+			String sql = "update series set data_inicial = '" + serie.getDataInicio() + ", data_final = '" + serie.getDataFim() + "'" +
+			             " where id = " + serie.getId() + " and projeto = " + serie.getProjetoId();
+			
+			PreparedStatement preparedStatement = connection.prepareStatement(sql);
+			
+			preparedStatement.executeUpdate();
+			
+			connection.commit();
+		}
+		catch(Exception e) {
+			
+			e.printStackTrace();
+			
+			try {
+				
+				connection.rollback();
+			}
+			catch(SQLException e1) {
+				
+				e1.printStackTrace();
+			}
+		}
 	}
 	
 	public List<Projeto> obterTodos() {
